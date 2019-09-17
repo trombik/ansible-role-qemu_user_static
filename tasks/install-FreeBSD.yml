@@ -1,0 +1,6 @@
+---
+
+- name: Install qemu_user_static
+  pkgng:
+    name: qemu_user_static
+    state: present

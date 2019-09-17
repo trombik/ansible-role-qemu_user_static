@@ -1,0 +1,3 @@
+---
+__qemu_user_static_db_dir: /var/db/qemu_user_static
+__qemu_user_static_conf_dir: /usr/local/etc/qemu_user_static

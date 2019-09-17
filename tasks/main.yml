@@ -1,0 +1,37 @@
+---
+# tasks file for ansible-role-qemu_user_static
+
+- include_vars: "{{ ansible_os_family }}.yml"
+
+- include: "install-{{ ansible_os_family }}.yml"
+
+- name: Create log directory
+  file:
+    path: "{{ qemu_user_static_log_dir }}"
+    mode: 0755
+    owner: "{{ qemu_user_static_user }}"
+    group: "{{ qemu_user_static_group }}"
+    state: directory
+  notify: Restart qemu_user_static
+
+- name: Create db directory
+  file:
+    path: "{{ qemu_user_static_db_dir }}"
+    mode: 0755
+    owner: "{{ qemu_user_static_user }}"
+    group: "{{ qemu_user_static_group }}"
+    state: directory
+  notify: Restart qemu_user_static
+
+- name: Create qemu_user_static.conf
+  template:
+    src: qemu_user_static.conf.j2
+    dest: "{{ qemu_user_static_conf_file }}"
+    validate: echo %s
+  notify: Restart qemu_user_static
+
+- name: Start qemu_user_static
+  service:
+    name: "{{ qemu_user_static_service }}"
+    enabled: true
+    state: started
