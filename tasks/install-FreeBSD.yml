@@ -1,6 +1,18 @@
 ---
 
-- name: Install qemu_user_static
+- name: "Install {{ qemu_user_static_package }}"
   pkgng:
-    name: qemu_user_static
+    name: "{{ qemu_user_static_package }}"
     state: present
+
+- name: "Create /etc/rc.conf.d/{{ qemu_user_static_service }}"
+  template:
+    src: FreeBSD.rcd.j2
+    dest: "/etc/rc.conf.d/{{ qemu_user_static_service }}"
+    mode: 0644
+    validate: sh -n %s
+
+- name: "Enable {{ qemu_user_static_service }}"
+  service:
+    name: "{{ qemu_user_static_service }}"
+    enabled: true

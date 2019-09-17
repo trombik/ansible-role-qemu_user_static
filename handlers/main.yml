@@ -1,6 +1,1 @@
 ---
-
-- name: Restart qemu_user_static
-  service:
-    name: qemu_user_static
-    state: restarted

@@ -1,6 +1,6 @@
-# ansible-role-qemu_user_static
+# `trombik.qemu_user_static`
 
-A brief description of the role goes here.
+Install `qemu_user_static` and enable binary image activators on FreeBSD.
 
 # Requirements
 
@@ -8,9 +8,12 @@ None
 
 # Role Variables
 
-| variable | description | default |
+| Variable | Description | Default |
 |----------|-------------|---------|
-
+| `qemu_user_static_package` | Package name of `qemu_user_static` | `emulators/qemu-user-static` |
+| `qemu_user_static_service` | Service name of `qemu_user_static` | `qemu_user_static` |
+| `qemu_user_static_conf_dir` | Path to configuration directory | `/usr/local/etc` |
+| `qemu_user_static_flags` | Flags for `rc.subr` | `""` |
 
 # Dependencies
 
@@ -19,6 +22,11 @@ None
 # Example Playbook
 
 ```yaml
+---
+- hosts: localhost
+  roles:
+    - ansible-role-qemu_user_static
+  vars:
 ```
 
 # License

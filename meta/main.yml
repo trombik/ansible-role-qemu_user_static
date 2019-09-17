@@ -2,13 +2,13 @@
 galaxy_info:
   role_name: qemu_user_static
   author: Tomoyuki Sakurai
-  description: Configures something
+  description: Install qemu-user-static
   company: N/A
   license: BSD
   min_ansible_version: 2.0
   platforms:
     - name: FreeBSD
       versions:
-        - 11.2
+        - 12.0
   galaxy_tags:
-    - system
+    - qemu

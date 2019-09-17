@@ -3,4 +3,3 @@
   roles:
     - ansible-role-qemu_user_static
   vars:
-    qemu_user_static_config: ""

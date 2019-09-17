@@ -1,9 +1,5 @@
 ---
-qemu_user_static_user: qemu_user_static
-qemu_user_static_group: qemu_user_static
-qemu_user_static_log_dir: /var/log/qemu_user_static
-qemu_user_static_db_dir: "{{ __qemu_user_static_db_dir }}"
+qemu_user_static_package: emulators/qemu-user-static
 qemu_user_static_service: qemu_user_static
-qemu_user_static_conf_dir: "{{ __qemu_user_static_conf_dir }}"
-qemu_user_static_conf_file: "{{ __qemu_user_static_conf_dir }}/qemu_user_static.conf"
+qemu_user_static_conf_dir: /usr/local/etc
 qemu_user_static_flags: ""
